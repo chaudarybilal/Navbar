@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+
+import Nav from './Nav';
+import { createTheme,ThemeProvider } from '@mui/material/styles';
+import HeroSection from './components/HeroSection';
+import { Container } from '@mui/material';
+import CakeSection from './components/CakeSection';
+import ContactUs from './components/ContactUs';
+
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#e28743',
+    },
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <ThemeProvider theme={theme}>
+       <Nav />
+       <Container>
+          <HeroSection /> 
+          <CakeSection />
+          <ContactUs />
+       </Container>
+   </ThemeProvider>
   );
 }
 
